@@ -41,6 +41,7 @@ public class Code_3_4_LengthOfLongestSubstring {
 
         int length = s.length();
         Set<Character> set = new HashSet<>();
+
         while (startIndex < length && endIndex < length && startIndex <= endIndex) {
             char c = s.charAt(endIndex);
             if (!set.contains(c)) {

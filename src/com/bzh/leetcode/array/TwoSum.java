@@ -1,4 +1,4 @@
-package com.bzh.leetcode;
+package com.bzh.leetcode.array;
 
 import org.hamcrest.core.IsEqual;
 import org.junit.Assert;
@@ -17,7 +17,7 @@ import java.util.Map;
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
  */
-public class Code_3_4_TwoSum {
+public class TwoSum {
 
     @Test
     public void test() {
