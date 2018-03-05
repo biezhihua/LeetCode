@@ -19,15 +19,26 @@ public class MaxProfile {
 
     @Test
     public void test() {
-        Assert.assertEquals(0, maxProfit(new int[]{}));
-        Assert.assertEquals(0, maxProfit(new int[]{10, 1}));
-        Assert.assertEquals(9, maxProfit(new int[]{1, 10}));
-        Assert.assertEquals(9, maxProfit(new int[]{1, 10, 10}));
-        Assert.assertEquals(9, maxProfit(new int[]{1, 10, 10, 10, 10}));
-        Assert.assertEquals(9, maxProfit(new int[]{1, 1, 10, 10}));
-        Assert.assertEquals(18, maxProfit(new int[]{1, 1, 10, 10, 1, 10}));
-        Assert.assertEquals(9, maxProfit(new int[]{1, 1, 10, 10, 1, 1, 1, 0}));
-        Assert.assertEquals(17, maxProfit(new int[]{10, 0, 1, 10, 3, 5, 6, 5, 6, 4, 7, 1}));
+//        Assert.assertEquals(0, maxProfit(new int[]{}));
+//        Assert.assertEquals(0, maxProfit(new int[]{10, 1}));
+//        Assert.assertEquals(9, maxProfit(new int[]{1, 10}));
+//        Assert.assertEquals(9, maxProfit(new int[]{1, 10, 10}));
+//        Assert.assertEquals(9, maxProfit(new int[]{1, 10, 10, 10, 10}));
+//        Assert.assertEquals(9, maxProfit(new int[]{1, 1, 10, 10}));
+//        Assert.assertEquals(18, maxProfit(new int[]{1, 1, 10, 10, 1, 10}));
+//        Assert.assertEquals(9, maxProfit(new int[]{1, 1, 10, 10, 1, 1, 1, 0}));
+//        Assert.assertEquals(17, maxProfit(new int[]{10, 0, 1, 10, 3, 5, 6, 5, 6, 4, 7, 1}));
+
+        Assert.assertEquals(0, maxProfit2(new int[]{}));
+        Assert.assertEquals(0, maxProfit2(new int[]{10, 1}));
+        Assert.assertEquals(9, maxProfit2(new int[]{1, 10}));
+        Assert.assertEquals(9, maxProfit2(new int[]{1, 10, 10}));
+        Assert.assertEquals(9, maxProfit2(new int[]{1, 10, 10, 10, 10}));
+        Assert.assertEquals(9, maxProfit2(new int[]{1, 1, 10, 10}));
+        Assert.assertEquals(18, maxProfit2(new int[]{1, 1, 10, 10, 1, 10}));
+        Assert.assertEquals(9, maxProfit2(new int[]{1, 1, 10, 10, 1, 1, 1, 0}));
+        Assert.assertEquals(17, maxProfit2(new int[]{10, 0, 1, 10, 3, 5, 6, 5, 6, 4, 7, 1}));
+
 
         //  若prices[maxIndex] > prices[i] (转折出现)
         //      minIndex = i;
@@ -38,6 +49,22 @@ public class MaxProfile {
         //  若prices[maxIndex] <= prices[i]
         //      maxIndex = i;
         //  最后 minIndex <= maxIndex &&  maxProfit += prices[maxIndex] - prices[minIndex];
+    }
+
+    public int maxProfit2(int[] prices) {
+        if (prices == null || prices.length < 2) {
+            return 0;
+        }
+
+        int sum = 0;
+
+        for (int i = 0; i < prices.length - 1; i++) {
+            if (prices[i + 1] > prices[i]) {
+                sum += prices[i + 1] - prices[i];
+            }
+        }
+
+        return sum;
     }
 
     public int maxProfit(int[] prices) {
