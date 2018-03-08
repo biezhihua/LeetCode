@@ -44,11 +44,7 @@ public class RotateArray {
         return result;
     }
 
-    /**
-     * 先调换 0 ~ length - k
-     * 再调换 length - k  ~ length - 1
-     * 再调换 0 ~ length
-     */
+
     public int[] rotate1(int[] nums, int k) {
 
 

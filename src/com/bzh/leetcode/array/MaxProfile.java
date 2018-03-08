@@ -58,6 +58,9 @@ public class MaxProfile {
 
         int sum = 0;
 
+        // 求多次交易的总利润，因为一个交易当前可以卖出买入
+        // 那么总利润就是 多次高价减去低价之和
+
         for (int i = 0; i < prices.length - 1; i++) {
             if (prices[i + 1] > prices[i]) {
                 sum += prices[i + 1] - prices[i];
