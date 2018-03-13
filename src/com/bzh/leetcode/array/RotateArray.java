@@ -33,7 +33,7 @@ public class RotateArray {
 
     public int[] rotate(int[] nums, int k) {
 
-        k =  k % nums.length;
+        k = k % nums.length;
 
         int[] result = new int[nums.length];
 
@@ -51,8 +51,59 @@ public class RotateArray {
         return null;
     }
 
+
+    @Test
+    public void test2() {
+
+        // 1
+        // 1, 2, 3, 4, 5, 6, 7
+
+        //       3
+        // 1, 2, 1, 4, 5, 6, 7
+
+        //             5
+        // 1, 2, 1, 4, 3, 6, 7
+
+        //                   7
+        // 1, 2, 1, 4, 3, 6, 5
+
+        //    2
+        // 1, 7, 1, 4, 3, 6, 5
+
+        //          4
+        // 1, 7, 1, 2, 3, 6, 5
+
+        //                6
+        // 1, 7, 1, 2, 3, 4, 5
+
+        // 1
+        // 6, 7, 1, 2, 3, 4, 5
+
+
+        Assert.assertArrayEquals(new int[]{7, 1, 2, 3, 4, 5, 6}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 1));
+        Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 0));
+        Assert.assertArrayEquals(new int[]{6, 7, 1, 2, 3, 4, 5}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 2));
+        Assert.assertArrayEquals(new int[]{5, 6, 7, 1, 2, 3, 4}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 3));
+        Assert.assertArrayEquals(new int[]{4, 5, 6, 7, 1, 2, 3}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 4));
+        Assert.assertArrayEquals(new int[]{3, 4, 5, 6, 7, 1, 2}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 5));
+        Assert.assertArrayEquals(new int[]{2, 3, 4, 5, 6, 7, 1}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 6));
+        Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6, 7}, rotate2(new int[]{1, 2, 3, 4, 5, 6, 7}, 7));
+        Assert.assertArrayEquals(new int[]{2, 1}, rotate2(new int[]{1, 2}, 1));
+        Assert.assertArrayEquals(new int[]{2, 1}, rotate2(new int[]{1, 2}, 3));
+    }
+
     public int[] rotate2(int[] nums, int k) {
-        return null;
+        int pos = 0;
+        int posValue = nums[pos];
+        int index = 0;
+        while (index++ < nums.length) {
+            pos = (pos + k) % nums.length;
+            int tmp = nums[pos];
+            nums[pos] = posValue;
+            posValue = tmp;
+        }
+
+        return nums;
     }
 
 }
