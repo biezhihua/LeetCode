@@ -57,7 +57,7 @@ public class SingleNumber {
             }
         }
 
-        return 0;
+        return -1;
     }
 
     @Test
@@ -75,5 +75,22 @@ public class SingleNumber {
             res ^= i;
         }
         return res;
+
+        // 1000
+        // 0111
+        // 0000
+
+        // 0111
+        // 0110
+        // 0110
+
+        // 0110
+        // 0101
+        // 0100
+
+        // 0100
+        // 0011
+        // 0000
+
     }
 }
